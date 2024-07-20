@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Approve Request</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/css/styles.css' %}">
+</head>
+<body>
+    <h2>Approve Purchase Request</h2>
+    <p>Approve request for "{{ request.product.name }}" by "{{ request.customer.username }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, approve</button>
+    </form>
+    <a href="{% url 'list_requests' %}">Cancel</a>
+</body>
+</html>

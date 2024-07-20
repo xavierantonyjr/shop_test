@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/css/styles.css' %}">
+
+</head>
+<body>
+    <h2>Admin Login</h2>
+    <form method="post" action="{% url 'admin_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

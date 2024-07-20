@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Purchase Requests</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/css/styles.css' %}">
+</head>
+<body>
+    <h2>My Purchase Requests</h2>
+    <ul>
+        {% for request in requests %}
+            <li>
+                {{ request.product.name }} - 
+                {% if request.approved %}
+                    Approved
+                {% else %}
+                    Pending
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'list_products' %}">Back to Products</a>
+</body>
+</html>
