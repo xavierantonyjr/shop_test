@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form method="post" action="{% url 'login' %}">
+        <form method="post" action="{% url 'login' %}?next={{ request.GET.next }}">
             {% csrf_token %}
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -16,6 +16,7 @@
             <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
         </form>
+        <p>Don't have an account? <a href="{% url 'register' %}?next={{ request.GET.next }}">Register here</a></p>
     </div>
 </body>
 </html>

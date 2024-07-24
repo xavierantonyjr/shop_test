@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Product, PurchaseRequest
+from django.urls import reverse
 
 def register(request):
     if request.method == 'POST':
@@ -12,11 +13,14 @@ def register(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('product_list')
+            if user is not None:
+                login(request, user)
+                next_url = request.GET.get('next', reverse('product_list'))
+                return redirect(next_url)
     else:
         form = UserCreationForm()
     return render(request, 'shop/register.html', {'form': form})
+
 
 def login_view(request):
     if request.method == 'POST':
