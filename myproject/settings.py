@@ -126,6 +126,16 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+import os
+
+# settings.py
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+# Optional, but useful for development
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

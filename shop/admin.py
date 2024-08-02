@@ -1,6 +1,8 @@
+# shop/admin.py
+
 from django.contrib import admin
-from .models import Product, PurchaseRequest, Customer
+from .models import Product, Request, UserProfile
 
 admin.site.register(Product)
-admin.site.register(PurchaseRequest)
-admin.site.register(Customer)
+admin.site.register(Request)
+admin.site.register(UserProfile)

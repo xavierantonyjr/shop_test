@@ -10,10 +10,30 @@
         <h2>Register</h2>
         <form method="post" action="{% url 'register' %}?next={{ request.GET.next }}">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div>
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" id="id_username" required>
+            </div>
+            <div>
+                <label for="id_email">Email:</label>
+                <input type="email" name="email" id="id_email" required>
+            </div>
+            <div>
+                <label for="id_phone_number">Phone number:</label>
+                <input type="text" name="phone_number" id="id_phone_number" required>
+            </div>
+            <div>
+                <label for="id_password1">Password:</label>
+                <input type="password" name="password1" id="id_password1" required>
+            </div>
+            <div>
+                <label for="id_password2">Password confirmation:</label>
+                <input type="password" name="password2" id="id_password2" required>
+            </div>
             <button type="submit">Register</button>
         </form>
         <p>Already have an account? <a href="{% url 'login' %}?next={{ request.GET.next }}">Login here</a></p>
     </div>
 </body>
 </html>
+

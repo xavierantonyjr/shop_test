@@ -1,0 +1,28 @@
+<!-- shop/templates/shop/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/css/styles.css' %}">
+    </head>
+<body>
+    <header>
+        <h1>Welcome to Our Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p>Explore our products and enjoy shopping!</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Our Shop</p>
+    </footer>
+</body>
+</html>
